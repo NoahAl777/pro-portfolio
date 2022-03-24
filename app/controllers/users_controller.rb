@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   wrap_parameters format: []
 
   def index
@@ -7,11 +8,7 @@ class UsersController < ApplicationController
 
   def show
     user = find_user
-    if user
-      render json: user, except: [:password, :created_at, :updated_at], status: :ok
-    else
-      render_not_found_response
-    end
+    render json: user, except: [:password, :created_at, :updated_at], status: :ok
   end
 
   def create
@@ -21,21 +18,13 @@ class UsersController < ApplicationController
 
   def destroy
     user = find_user
-    if user
-      user.destroy
-    else
-      render_not_found_response
-    end
+    user.destroy
   end
 
   def update
     user = find_user
-    if user
-      user.update(user_params)
-      render json: user, status: :accepted
-    else
-      render_not_found_response
-    end
+    user.update(user_params)
+    render json: user, status: :accepted
   end
 
   private
