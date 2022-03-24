@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  wrap_parameters format: []
 
   def index
     render json: User.all, except: [:password, :created_at, :updated_at], status: :ok
@@ -22,6 +23,16 @@ class UsersController < ApplicationController
     user = User.find_by(id: params[:id])
     if user
       user.destroy
+    else
+      render json: { error: "user not found" }, status: :not_found
+    end
+  end
+
+  def update
+    user = User.find_by(id: params[:id])
+    if user
+      user.update(user_params)
+      render json: user, status: :accepted
     else
       render json: { error: "user not found" }, status: :not_found
     end
