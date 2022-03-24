@@ -14,8 +14,9 @@
   Project.create(
     title: Faker::App.unique.name,
     description: Faker::Lorem.paragraph(sentence_count: 2),
-    technologies: "#{Faker::ProgrammingLanguage.name}, #{Faker::ProgrammingLanguage.name}, #{Faker::ProgrammingLanguage.name}",
+    technologies: Faker::ProgrammingLanguage.name,
     github: Faker::Internet.url(host: 'github.com'),
-    live_link: Faker::Internet.url(host: 'herokuapp.com')
+    live_link: Faker::Internet.url(host: 'herokuapp.com'),
+    user_id: Faker::Number.between(from: 1, to: 10)
     )
 end
