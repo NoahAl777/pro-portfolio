@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find_by(id: params[:id])
+    user = find_user
     if user
       render json: user, except: [:password, :created_at, :updated_at], status: :ok
     else
@@ -15,12 +15,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(user_params)
+    user = find_user
     render json: user, status: :created
   end
 
   def destroy
-    user = User.find_by(id: params[:id])
+    user = find_user
     if user
       user.destroy
     else
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find_by(id: params[:id])
+    user = find_user
     if user
       user.update(user_params)
       render json: user, status: :accepted
@@ -42,6 +42,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.permit(:username, :email, :password, :firstname, :lastname, :profession, :github)
+  end
+
+  def find_user
+    User.find(params[:id])
   end
 
   def render_not_found_response
