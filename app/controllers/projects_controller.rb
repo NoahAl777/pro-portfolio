@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     else
     projects = Project.all
     end
-    render json: projects, include: :user
+    render json: projects, include: :user, status: :ok
   end
 
   def show
@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
     else
       project = Project.find(params[:id])
     end
-    render json: project, include: :user
+    render json: project, include: :user, status: :ok
   end
 
   def create
@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
       user = User.find(params[:user_id])
       project = user.projects.create(project_params)
     end
-    render json: project, include: :user
+    render json: project, include: :user, status: :created
   end
 
   def destroy
@@ -41,7 +41,13 @@ class ProjectsController < ApplicationController
   end
 
   def update
-
+    if params[:user_id]
+      user = User.find(params[:user_id])
+      project = user.projects.find(params[:id])
+      project.update(project_params)
+    end
+    render json: project, include: :user, status: :accepted
+  end
 
 private
 
