@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
   def index
     if params[:user_id]
-      user = User.find(params[:user_id])
+      user = find_user
       projects = user.projects
     else
       projects = Project.all
@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id])
+    user = find_user
     project = user.projects.create(project_params)
     render json: project, include: :user, status: :created
   end
