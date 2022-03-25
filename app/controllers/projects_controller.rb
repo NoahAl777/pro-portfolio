@@ -17,10 +17,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    if params[:user_id]
-      user = User.find(params[:user_id])
-      project = user.projects.create(project_params)
-    end
+    user = User.find(params[:user_id])
+    project = user.projects.create(project_params)
     render json: project, include: :user, status: :created
   end
 
