@@ -29,11 +29,8 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if params[:user_id]
-      user = User.find(params[:user_id])
-      project = user.projects.find(params[:id])
-      project.update(project_params)
-    end
+    project = Project.find(params[:id])
+    project.update(project_params)
     render json: project, include: :user, status: :accepted
   end
 
