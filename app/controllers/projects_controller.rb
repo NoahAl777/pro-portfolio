@@ -12,12 +12,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    if params[:user_id]
-      user = User.find(params[:user_id])
-      project = user.projects.find(params[:id])
-    else
-      project = Project.find(params[:id])
-    end
+    project = Project.find(params[:id])
     render json: project, include: :user, status: :ok
   end
 
