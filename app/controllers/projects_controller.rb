@@ -33,9 +33,15 @@ class ProjectsController < ApplicationController
       user = User.find(params[:user_id])
       project = user.projects.find(params[:id])
       project.destroy
-      head :no_content
+    else
+      project = Project.find(params[:id])
+      project.destroy
     end
+    head :no_content
   end
+
+  def update
+
 
 private
 
