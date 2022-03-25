@@ -23,14 +23,8 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    if params[:user_id]
-      user = User.find(params[:user_id])
-      project = user.projects.find(params[:id])
-      project.destroy
-    else
-      project = Project.find(params[:id])
-      project.destroy
-    end
+    project = Project.find(params[:id])
+    project.destroy
     head :no_content
   end
 
