@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    project = Project.find(params[:id])
+    project = find_project
     render json: project, include: :user, status: :ok
   end
 
@@ -23,13 +23,13 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    project = Project.find(params[:id])
+    project = find_project
     project.destroy
     head :no_content
   end
 
   def update
-    project = Project.find(params[:id])
+    project = find_project
     project.update(project_params)
     render json: project, include: :user, status: :accepted
   end
