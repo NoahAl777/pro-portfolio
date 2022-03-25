@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
       user = User.find(params[:user_id])
       projects = user.projects
     else
-    projects = Project.all
+      projects = Project.all
     end
     render json: projects, include: :user, status: :ok
   end
@@ -42,6 +42,10 @@ end
 
 def find_project
   Project.find(params[:id])
+end
+
+def find_user
+  User.find(params[:user_id])
 end
 
 def render_not_found_response
