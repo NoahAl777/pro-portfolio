@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
-
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+  
   def index
     if params[:user_id]
       user = User.find(params[:user_id])
@@ -57,6 +58,10 @@ end
 
 def find_project
   Project.find(params[:id])
+end
+
+def render_not_found_response
+  render json: { error: "user not found" }, status: :not_found
 end
 
 end
