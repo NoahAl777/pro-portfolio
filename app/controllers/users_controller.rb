@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = find_user
+    user = User.create(user_params)
     render json: user, status: :created
   end
 
