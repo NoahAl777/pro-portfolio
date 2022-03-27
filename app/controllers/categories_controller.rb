@@ -15,4 +15,9 @@ class CategoriesController < ApplicationController
   def find_category
     Category.find(params[:id])
   end
+
+  def render_not_found_response
+    render json: { error: "project not found" }, status: :not_found
+  end
+  
 end
