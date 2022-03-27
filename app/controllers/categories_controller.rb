@@ -3,7 +3,12 @@ class CategoriesController < ApplicationController
   wrap_parameters format: []
 
   def index
-    categories = Category.all
+    if params[:project_id]
+      project = Project.find(params[:project_id])
+      categories = project.categories
+    else
+      categories = Category.all
+    end
     render json: categories, status: :ok
   end
 
