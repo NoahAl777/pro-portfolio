@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+
   wrap_parameters format: []
 
   def index
@@ -20,6 +21,12 @@ class CategoriesController < ApplicationController
     category = find_category
     category.destroy
     head :no_content
+  end
+
+  def update
+    category = find_category
+    category.update(category_params)
+    render json: category, status: :accepted
   end
 
   private
