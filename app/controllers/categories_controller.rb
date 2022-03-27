@@ -8,6 +8,10 @@ class CategoriesController < ApplicationController
 
   private
 
+  def category_params
+    params.permit(:title, :description)
+  end
+
   def find_category
     Category.find(params[:id])
   end
