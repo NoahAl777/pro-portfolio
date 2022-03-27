@@ -1,9 +1,14 @@
 class CategoriesController < ApplicationController
+  wrap_parameters format: []
 
-  
   def index
     categories = Category.all
     render json: categories, status: :ok
+  end
+
+  def show
+    category = find_category
+    render json: category, status: :ok
   end
 
   private
@@ -19,5 +24,5 @@ class CategoriesController < ApplicationController
   def render_not_found_response
     render json: { error: "project not found" }, status: :not_found
   end
-  
+
 end
