@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
 
   resources :users, only: [:index, :show, :create, :update, :destroy] do
     resources :projects, only: [:index, :show, :create, :update, :destroy]
