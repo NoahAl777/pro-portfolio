@@ -11,6 +11,11 @@ class CategoriesController < ApplicationController
     render json: category, status: :ok
   end
 
+  def create
+    category = Category.create(category_params)
+    render json: category, status: :created
+  end
+
   private
 
   def category_params
