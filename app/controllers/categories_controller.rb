@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
 
   def index
     if params[:project_id]
-      project = Project.find(params[:project_id])
+      project = find_project
       categories = project.categories
     else
       categories = Category.all
@@ -42,6 +42,10 @@ class CategoriesController < ApplicationController
 
   def find_category
     Category.find(params[:id])
+  end
+
+  def find_project
+    Project.find(params[:project_id])
   end
 
   def render_not_found_response
