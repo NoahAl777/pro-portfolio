@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    byebug
     user = find_user
     project = user.projects.create(project_params)
     render json: project, include: :user, status: :created

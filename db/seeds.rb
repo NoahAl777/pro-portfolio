@@ -21,9 +21,16 @@
 #     )
 # end
 
-15.times do
-  Category.create(
-    title: Faker::Company.industry,
-    description: Faker::Lorem.paragraph(sentence_count: 2)
+# 15.times do
+#   Category.create(
+#     title: Faker::Company.industry,
+#     description: Faker::Lorem.paragraph(sentence_count: 2)
+#   )
+# end
+
+50.times do
+  ProjectCategory.create(
+    project_id: Faker::Number.between(from: 3, to: 13),
+    category_id: Faker::Number.between(from: 1, to: 15)
   )
 end
