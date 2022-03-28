@@ -18,7 +18,12 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    category = Category.create(category_params)
+    if params[:project_id]
+      ProjectCategory.create(project_id: params[:project_id], category_id: params[:category_id])
+      category = Category.find(params[:category_id])
+    else
+      category = Category.create(category_params)
+    end
     render json: category, status: :created
   end
 
