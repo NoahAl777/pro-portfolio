@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   wrap_parameters format: []
 
   def index
-    render json: User.all, except: [:password, :created_at, :updated_at], status: :ok
+    render json: User.all, status: :ok
   end
 
   def show
