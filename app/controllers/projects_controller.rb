@@ -8,18 +8,18 @@ class ProjectsController < ApplicationController
     else
       projects = Project.all
     end
-    render json: projects, include: :user, status: :ok
+    render json: projects, status: :ok
   end
 
   def show
     project = find_project
-    render json: project, include: :user, status: :ok
+    render json: project, status: :ok
   end
 
   def create
     user = find_user
     project = user.projects.create(project_params)
-    render json: project, include: :user, status: :created
+    render json: project, status: :created
   end
 
   def destroy
@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
   def update
     project = find_project
     project.update(project_params)
-    render json: project, include: :user, status: :accepted
+    render json: project, status: :accepted
   end
 
 private
