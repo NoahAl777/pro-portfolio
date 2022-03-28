@@ -28,7 +28,11 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    category = find_category
+    if params[:project_id]
+      category = ProjectCategory.find_by(project_id: params[:project_id], category_id: params[:id] )
+    else
+      category = find_category
+    end
     category.destroy
     head :no_content
   end
