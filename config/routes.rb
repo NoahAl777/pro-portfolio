@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :show, :create, :destroy]
   end
 
-  resources :categories, only: [:index, :show]
+  resources :categories, only: [:index, :show, :create, :update, :destroy]
 
 end
