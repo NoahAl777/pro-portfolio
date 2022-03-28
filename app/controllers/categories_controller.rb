@@ -13,7 +13,12 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    category = find_category
+    if params[:project_id]
+      project = find_project
+      category = project.categories.find(params[:id])
+    else
+      category = find_category
+    end
     render json: category, status: :ok
   end
 
