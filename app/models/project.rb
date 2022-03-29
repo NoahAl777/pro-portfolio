@@ -4,4 +4,5 @@ class Project < ApplicationRecord
   has_many :categories, through: :project_categories
 
   validates :title, presence: true
+  validates :description, length: {in: 10..1000}
 end
