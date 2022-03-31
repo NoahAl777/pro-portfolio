@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
   wrap_parameters format: []
 
   def index
@@ -27,7 +28,7 @@ class CategoriesController < ApplicationController
       ProjectCategory.create(project_id: params[:project_id], category_id: params[:category_id])
       category = Category.find(params[:category_id])
     else
-      category = Category.create(category_params)
+      category = Category.create!(category_params)
     end
     render json: category, status: :created
   end
@@ -44,7 +45,7 @@ class CategoriesController < ApplicationController
 
   def update
     category = find_category
-    category.update(category_params)
+    category.update!(category_params)
     render json: category, status: :accepted
   end
 
