@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
 
   def update
     project = find_project
-    project.update(project_params)
+    project.update!(project_params)
     render json: project, status: :accepted
   end
 
