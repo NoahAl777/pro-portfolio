@@ -66,4 +66,7 @@ class CategoriesController < ApplicationController
     render json: { error: "category not found" }, status: :not_found
   end
 
+  def render_unprocessable_entity(invalid)
+    render json: {error: invalid.record.errors}, status: :unprocessable_entity
+  end
 end
