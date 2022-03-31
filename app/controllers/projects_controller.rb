@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
   def index
     if params[:user_id]
@@ -18,7 +19,7 @@ class ProjectsController < ApplicationController
 
   def create
     user = find_user
-    project = user.projects.create(project_params)
+    project = user.projects.create!(project_params)
     render json: project, status: :created
   end
 
