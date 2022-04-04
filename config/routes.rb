@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  
-  resources :users, only: [:index, :show, :create, :update, :destroy] do
-    resources :projects, only: [:index, :show, :create, :update, :destroy]
-  end
-  
-  resources :projects, only: [:index, :show, :update, :destroy] do
-    resources :categories, only: [:index, :show, :create, :destroy]
+  namespace :api do
+    resources :users, only: [:index, :show, :create, :update, :destroy] do
+      resources :projects, only: [:index, :show, :create, :update, :destroy]
+    end
+    
+    resources :projects, only: [:index, :show, :update, :destroy] do
+      resources :categories, only: [:index, :show, :create, :destroy]
+    end
+
+    resources :categories, only: [:index, :show, :create, :update, :destroy]
   end
 
-  resources :categories, only: [:index, :show, :create, :update, :destroy]
-
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
