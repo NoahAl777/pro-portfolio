@@ -31,7 +31,7 @@ const ProfilesList = () => {
   console.log("profilesToDisplay: ", profilesToDisplay)
   return (
     <div className="ProfilesList">
-      {listOfProfiles != null ? listOfProfiles : null}
+      {listOfProfiles}
     </div>
   )
 };
