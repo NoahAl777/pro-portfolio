@@ -10,6 +10,10 @@ const ProfilesList = () => {
       .then(data => setProfiles(data))
   }, [])
 
+  useEffect(() => {
+    console.log("profiles:", profiles)
+  }, [profiles])
+
   console.log("profiles: ", profiles)
   return (
     <div className="ProfilesList">
