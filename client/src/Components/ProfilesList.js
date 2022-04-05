@@ -12,19 +12,19 @@ const ProfilesList = () => {
       })
   }, [])
 
-  if (profiles != null) {
-    const listOfProfiles = profiles.map(profile => {
-      return (
-        <>
-          <p key={profile.id}>
-            {`${profile.firstName} ${profile.lastName} | ${profile.profession} | ${profile.github}`}
-          </p>
-        </>
-      )
-    })
+  useEffect(() => {
+    setProfilesToDisplay(profiles)
+  }, [profiles])
 
-    return listOfProfiles
-  }
+  const listOfProfiles = profilesToDisplay.map(profile => {
+    return (
+      <>
+        <p key={profile.id}>
+          {`${profile.firstName} ${profile.lastName} | ${profile.profession} | ${profile.github}`}
+        </p>
+      </>
+    )
+  })
 
   console.log("profilesToDisplay: ", profilesToDisplay)
   return (
