@@ -19,10 +19,12 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/">
-          <Home />
-          <ProfilesList profiles={profiles} />
-        </Route>
+        <Route path="/" element={
+          <>
+            <Home />
+            <ProfilesList profiles={profiles} />
+          </>
+        } />
       </Routes>
     </div>
   );

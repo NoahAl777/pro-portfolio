@@ -11,11 +11,9 @@ const ProfilesList = ({ profiles }) => {
 
   const listOfProfiles = profilesToDisplay.map(profile => {
     return (
-      <>
-        <p key={profile.id}>
-          {`${profile.firstname} ${profile.lastname} | ${profile.profession} | ${profile.github}`}
-        </p>
-      </>
+      <p key={profile.id}>
+        {`${profile.firstname} ${profile.lastname} | ${profile.profession} | ${profile.github}`}
+      </p>
     )
   })
 
