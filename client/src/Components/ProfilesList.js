@@ -6,9 +6,10 @@ const ProfilesList = () => {
   useEffect(() => {
     fetch("/api/users")
       .then(r => r.json())
-      .then(console.log)
-  })
+      .then(data => setProfiles(data))
+  }, [])
 
+  console.log("profiles: ", profiles)
   return (
     <div className="ProfilesList">
 
