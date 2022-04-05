@@ -9,14 +9,23 @@ const ProfilesList = () => {
       .then(r => r.json())
       .then(data => {
         setProfiles(data)
-        setProfilesToDisplay(data)
       })
   }, [])
+
+  const listOfProfiles = profiles.map(profile => {
+    return (
+      <>
+        <p key={profile.id}>
+          {`${profile.firstName} ${profile.lastName} | ${profile.profession} | ${profile.github}`}
+        </p>
+      </>
+    )
+  })
 
   console.log("profilesToDisplay: ", profilesToDisplay)
   return (
     <div className="ProfilesList">
-
+      {listOfProfiles != null ? listOfProfiles : null}
     </div>
   )
 };
