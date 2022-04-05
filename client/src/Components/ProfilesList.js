@@ -7,14 +7,13 @@ const ProfilesList = () => {
   useEffect(() => {
     fetch("/api/users")
       .then(r => r.json())
-      .then(data => setProfiles(data))
+      .then(data => {
+        setProfiles(data)
+        setProfilesToDisplay(data)
+      })
   }, [])
 
-  useEffect(() => {
-    console.log("profiles:", profiles)
-  }, [profiles])
-
-  console.log("profiles: ", profiles)
+  console.log("profilesToDisplay: ", profilesToDisplay)
   return (
     <div className="ProfilesList">
 
