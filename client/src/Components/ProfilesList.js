@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const ProfilesList = () => {
   const [profiles, setProfiles] = useState();
+  const [profilesToDisplay, setProfilesToDisplay] = useState();
 
   useEffect(() => {
     fetch("/api/users")
