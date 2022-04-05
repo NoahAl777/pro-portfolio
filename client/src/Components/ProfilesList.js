@@ -12,15 +12,19 @@ const ProfilesList = () => {
       })
   }, [])
 
-  const listOfProfiles = profiles.map(profile => {
-    return (
-      <>
-        <p key={profile.id}>
-          {`${profile.firstName} ${profile.lastName} | ${profile.profession} | ${profile.github}`}
-        </p>
-      </>
-    )
-  })
+  if (profiles != null) {
+    const listOfProfiles = profiles.map(profile => {
+      return (
+        <>
+          <p key={profile.id}>
+            {`${profile.firstName} ${profile.lastName} | ${profile.profession} | ${profile.github}`}
+          </p>
+        </>
+      )
+    })
+
+    return listOfProfiles
+  }
 
   console.log("profilesToDisplay: ", profilesToDisplay)
   return (
