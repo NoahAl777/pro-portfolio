@@ -16,7 +16,7 @@ const ProfilesList = () => {
     setProfilesToDisplay(profiles)
   }, [profiles])
 
-  console.log("profiles to display: ", profilesToDispay)
+  console.log("profiles to display: ", profilesToDisplay)
 
   const listOfProfiles = profilesToDisplay.map(profile => {
     return (
