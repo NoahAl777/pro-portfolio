@@ -19,7 +19,7 @@ const ProfilesList = () => {
   console.log("profiles to display: ", profilesToDisplay)
 
   const listOfProfiles = profilesToDisplay.map(profile => {
-    debugger
+    console.log("profile: ", profile)
     return (
       <>
         <p key={profile.id}>
