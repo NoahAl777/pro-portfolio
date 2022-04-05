@@ -19,6 +19,7 @@ const ProfilesList = () => {
   console.log("profiles to display: ", profilesToDisplay)
 
   const listOfProfiles = profilesToDisplay.map(profile => {
+    debugger
     return (
       <>
         <p key={profile.id}>
@@ -28,7 +29,6 @@ const ProfilesList = () => {
     )
   })
 
-  console.log("profilesToDisplay: ", profilesToDisplay)
   return (
     <div className="ProfilesList">
       {listOfProfiles}
