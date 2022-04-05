@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 const ProfilesList = () => {
-  const [profiles, setProfiles] = useState();
-  const [profilesToDisplay, setProfilesToDisplay] = useState();
+  const [profiles, setProfiles] = useState([]);
+  const [profilesToDisplay, setProfilesToDisplay] = useState([]);
 
   useEffect(() => {
     fetch("/api/users")
@@ -15,6 +15,8 @@ const ProfilesList = () => {
   useEffect(() => {
     setProfilesToDisplay(profiles)
   }, [profiles])
+
+  console.log("profiles to display: ", profilesToDispay)
 
   const listOfProfiles = profilesToDisplay.map(profile => {
     return (
