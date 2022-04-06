@@ -3,7 +3,11 @@ import React, { useState, useEffect } from "react";
 const ProjectsList = ({ projects }) => {
   const [projectsToDisplay, setProjectsToDisplay] = useState([])
 
-  console.log("projects", projects)
+  useEffect(() => {
+    setProjectsToDisplay(projects)
+  }, [projects])
+
+  console.log("projects to display", projectsToDisplay)
   return (
     <div className="ProjectsList">
       <h2>Projects</h2>
