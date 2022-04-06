@@ -1,7 +1,7 @@
 import React from "react";
 
-const ProjectsList = () => {
-
+const ProjectsList = ({ projects }) => {
+  console.log("projects", projects)
   return (
     <div className="ProjectsList">
       <h2>Projects</h2>

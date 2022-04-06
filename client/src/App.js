@@ -26,13 +26,12 @@ function App() {
       })
   }, []);
 
-  console.log("projects", projects)
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profiles" element={<ProfilesList profiles={profiles} />} />
-        <Route path="/projects" element={<ProjectsList />} />
+        <Route path="/projects" element={<ProjectsList projects={projects} />} />
       </Routes>
     </div>
   );
