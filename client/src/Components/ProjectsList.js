@@ -11,7 +11,9 @@ const ProjectsList = ({ projects }) => {
 
   const listOfProjects = projectsToDisplay.map(project => {
     return (
-      <p key={project.id}>{`${project.title} | ${project.description} | ${project.technologies} | ${project.github}`}</p>
+      <p key={project.id}>
+        {`${project.title} | ${project.description} | ${project.technologies} | ${project.github}`}
+      </p>
     )
   })
 
