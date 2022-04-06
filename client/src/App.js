@@ -8,6 +8,7 @@ import ProjectsList from './Components/ProjectsList';
 
 function App() {
   const [profiles, setProfiles] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     fetch("/api/users")
@@ -15,7 +16,7 @@ function App() {
       .then(data => {
         setProfiles(data)
       })
-  }, [])
+  }, []);
 
   return (
     <div className="App">
@@ -26,6 +27,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;
