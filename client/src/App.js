@@ -18,6 +18,15 @@ function App() {
       })
   }, []);
 
+  useEffect(() => {
+    fetch("/api/projects")
+      .then(r => r.json())
+      .then(data => {
+        setProjects(data)
+      })
+  }, []);
+
+  console.log("projects", projects)
   return (
     <div className="App">
       <Routes>
