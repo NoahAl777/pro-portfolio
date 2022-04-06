@@ -5,10 +5,12 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Home"
 import ProfilesList from './Components/ProfilesList';
 import ProjectsList from './Components/ProjectsList';
+import CategoriesList from './Components/CategoriesList';
 
 function App() {
   const [profiles, setProfiles] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetch("/api/users")
@@ -26,12 +28,21 @@ function App() {
       })
   }, []);
 
+  useEffect(() => {
+    fetch("/api/categories")
+      .then(r => r.json())
+      .then(data => {
+        setCategories(data)
+      })
+  }, []);
+
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profiles" element={<ProfilesList profiles={profiles} />} />
         <Route path="/projects" element={<ProjectsList projects={projects} />} />
+        <Route path="/categories" element={<CategoriesList categories={categories} />} />
       </Routes>
     </div>
   );
