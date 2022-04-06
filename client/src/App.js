@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Home"
 import ProfilesList from './Components/ProfilesList';
+import ProjectsList from './Components/ProjectsList';
 
 function App() {
   const [profiles, setProfiles] = useState([]);
