@@ -19,6 +19,7 @@ const ProfilesList = ({ profiles }) => {
 
   return (
     <div className="ProfilesList">
+      <h2>Users</h2>
       {listOfProfiles}
     </div>
   )
