@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const ProfilesList = ({ profiles, selectedProfile, setSelectedProfile }) => {
   const [profilesToDisplay, setProfilesToDisplay] = useState([]);
@@ -11,9 +12,11 @@ const ProfilesList = ({ profiles, selectedProfile, setSelectedProfile }) => {
 
   const listOfProfiles = profilesToDisplay.map(profile => {
     return (
-      <p key={profile.id}>
-        {`${profile.firstname} ${profile.lastname} | ${profile.profession} | ${profile.github}`}
-      </p>
+      <Link to={`/profiles/${profile.id}`}>
+        <p key={profile.id}>
+          {`${profile.firstname} ${profile.lastname} | ${profile.profession} | ${profile.github}`}
+        </p>
+      </Link>
     )
   })
 
