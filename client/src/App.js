@@ -6,6 +6,7 @@ import Home from "./Components/Home"
 import ProfilesList from './Components/ProfilesList';
 import ProjectsList from './Components/ProjectsList';
 import CategoriesList from './Components/CategoriesList';
+import Profile from './Components/Profile';
 
 function App() {
   const [profiles, setProfiles] = useState([]);
@@ -41,6 +42,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profiles" element={<ProfilesList profiles={profiles} />} />
+        <Route path="/profiles/:profileId" element={<Profile />} />
         <Route path="/projects" element={<ProjectsList projects={projects} />} />
         <Route path="/categories" element={<CategoriesList categories={categories} />} />
       </Routes>
