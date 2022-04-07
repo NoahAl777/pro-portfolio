@@ -37,7 +37,7 @@ function App() {
         setCategories(data)
       })
   }, []);
-
+  console.log("selected profile", selectedProfile)
   return (
     <div className="App">
       <Routes>
@@ -45,7 +45,6 @@ function App() {
         <Route path="/profiles" element={
           <ProfilesList
             profiles={profiles}
-            selectedProfile={selectedProfile}
             setSelectedProfile={setSelectedProfile} />}
         />
         <Route path="/profiles/:profileId" element={<Profile />} />

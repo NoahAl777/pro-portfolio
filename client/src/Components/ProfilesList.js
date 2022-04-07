@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const ProfilesList = ({ profiles, selectedProfile, setSelectedProfile }) => {
+const ProfilesList = ({ profiles, setSelectedProfile }) => {
   const [profilesToDisplay, setProfilesToDisplay] = useState([]);
 
   useEffect(() => {
     setProfilesToDisplay(profiles)
   }, [profiles])
 
-  console.log("profiles to display: ", profilesToDisplay)
+  const handleSelectProfileClick = (clickedProfileId) => {
+    const clickedProfile = profiles.filter((profile) => profile.id === clickedProfileId)
+    setSelectedProfile(clickedProfile)
+  }
 
   const listOfProfiles = profilesToDisplay.map(profile => {
     return (
-      <Link to={`/profiles/${profile.id}`}>
-        <p key={profile.id}>
+      <p key={profile.id}>
+        <Link to={`/profiles/${profile.id}`} onClick={() => handleSelectProfileClick(profile.id)}>
           {`${profile.firstname} ${profile.lastname} | ${profile.profession} | ${profile.github}`}
-        </p>
-      </Link>
+        </Link>
+      </p>
     )
   })
 
