@@ -47,7 +47,11 @@ function App() {
             profiles={profiles}
             setSelectedProfile={setSelectedProfile} />}
         />
-        <Route path="/profiles/:profileId" element={<Profile selectedProfile={selectedProfile} />} />
+        <Route path="/profiles/:profileId" element={
+          <Profile
+            selectedProfile={selectedProfile}
+            setSelectedProfile={setSelectedProfile} />}
+        />
         <Route path="/projects" element={<ProjectsList projects={projects} />} />
         <Route path="/categories" element={<CategoriesList categories={categories} />} />
       </Routes>
