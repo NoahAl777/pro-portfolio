@@ -5,7 +5,7 @@ const Profile = ({ selectedProfile, setSelectedProfile }) => {
   const params = useParams();
   const [currentProfile, setCurrentProfile] = useState(selectedProfile[0])
   const { firstname, lastname, email, github, profession, username } = currentProfile;
-  console.log(currentProfile)
+
   return (
     <div className="Profile">
       <h1>{firstname} {lastname} | {profession}</h1>
