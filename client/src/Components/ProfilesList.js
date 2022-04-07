@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const ProfilesList = ({ profiles }) => {
+const ProfilesList = ({ profiles, selectedProfile, setSelectedProfile }) => {
   const [profilesToDisplay, setProfilesToDisplay] = useState([]);
 
   useEffect(() => {
