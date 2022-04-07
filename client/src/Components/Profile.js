@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-const Profile = () => {
+const Profile = ({ selectedProfile }) => {
   const params = useParams();
-  console.log(params.profileId)
+  console.log("selected profile", selectedProfile)
 
   return (
     <div className="Profile">
