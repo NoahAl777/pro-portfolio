@@ -12,7 +12,6 @@ function App() {
   const [profiles, setProfiles] = useState([]);
   const [projects, setProjects] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [selectedProfile, setSelectedProfile] = useState([]);
 
   useEffect(() => {
     fetch("/api/users")
