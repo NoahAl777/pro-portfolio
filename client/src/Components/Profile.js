@@ -26,9 +26,6 @@ const Profile = ({ selectedProfile, setSelectedProfile }) => {
   } else {
     return <h2>Loading profile...</h2>
   }
-
-  // console.log("current profile", currentProfile)
-  // console.log("displayed", displayedProfile)
 };
 
 export default Profile;
