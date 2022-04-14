@@ -5,10 +5,18 @@ const NavBar = () => {
 
   return (
     <div className="NavBar">
-      <button className="HomeButton">Home</button>
-      <button className="PortfoliosButton">Portfolios</button>
-      <button className="ProjectsButton">Projects</button>
-      <button className="CategoriesButton">Categories</button>
+      <Link to="/">
+        <button className="HomeButton">Home</button>
+      </Link>
+      <Link to="/profiles">
+        <button className="PortfoliosButton">Portfolios</button>
+      </Link>
+      <Link to="/projects">
+        <button className="ProjectsButton">Projects</button>
+      </Link>
+      <Link to="/categories">
+        <button className="CategoriesButton">Categories</button>
+      </Link>
     </div>
   )
 };
