@@ -5,7 +5,10 @@ const NavBar = () => {
 
   return (
     <div className="NavBar">
-      <h2>NavBar</h2>
+      <button className="HomeButton">Home</button>
+      <button className="PortfoliosButton">Portfolios</button>
+      <button className="ProjectsButton">Projects</button>
+      <button className="CategoriesButton">Categories</button>
     </div>
   )
 };
