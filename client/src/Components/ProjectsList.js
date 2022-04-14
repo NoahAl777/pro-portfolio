@@ -13,7 +13,9 @@ const ProjectsList = ({ projects }) => {
   const listOfProjects = projectsToDisplay.map(project => {
     return (
       <p key={project.id}>
-        {`${project.title} | ${project.description} | ${project.technologies} | ${project.github}`}
+        <Link to={`/projects/${project.id}`}>
+          {`${project.title} | ${project.description} | ${project.technologies} | ${project.github}`}
+        </Link>
       </p>
     )
   })
