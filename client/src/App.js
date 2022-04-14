@@ -8,6 +8,7 @@ import ProfilesList from './Components/ProfilesList';
 import ProjectsList from './Components/ProjectsList';
 import CategoriesList from './Components/CategoriesList';
 import Profile from './Components/Profile';
+import Project from './Components/Project';
 
 function App() {
   const [profiles, setProfiles] = useState([]);
@@ -55,6 +56,7 @@ function App() {
             setSelectedProfile={setSelectedProfile} />}
         />
         <Route path="/projects" element={<ProjectsList projects={projects} />} />
+        <Route path="/projects/:projectId" element={<Project />} />
         <Route path="/categories" element={<CategoriesList categories={categories} />} />
       </Routes>
     </div>
