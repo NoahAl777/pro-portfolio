@@ -61,7 +61,7 @@ function App() {
             projects={projects}
             setSelectedProject={setSelectedProject} />}
         />
-        <Route path="/projects/:projectId" element={<Project />} />
+        <Route path="/projects/:projectId" element={<Project selectedProject={selectedProject} />} />
         <Route path="/categories" element={<CategoriesList categories={categories} />} />
       </Routes>
     </div>

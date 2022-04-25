@@ -1,6 +1,6 @@
 import React from "react";
 
-const Project = () => {
+const Project = (selectedProject) => {
 
   return (
     <div className="Project">
