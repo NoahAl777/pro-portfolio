@@ -5,14 +5,20 @@ const Project = (selectedProject) => {
 
   console.log("current project", currentProject.selectedProject)
   // debugger
-  const { title, description, technologies, github } = currentProject.selectedProject
-  return (
-    <div className="Project">
-      <h2>{`${title} - ${technologies}`}</h2>
-      <p>{`Description: ${description}`}</p>
-      <p>{`Github: ${github}`}</p>
-    </div>
-  )
+  if (currentProject.selectedProject.length != 0) {
+    const { title, description, technologies, github } = currentProject.selectedProject
+    return (
+      <div className="Project">
+        <h2>{`${title} - ${technologies}`}</h2>
+        <p>{`Description: ${description}`}</p>
+        <p>{`Github: ${github}`}</p>
+      </div>
+    )
+  } else {
+    return (
+      <p>Loading...</p>
+    )
+  }
 };
 
 export default Project;
