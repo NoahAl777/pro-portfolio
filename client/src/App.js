@@ -15,6 +15,7 @@ function App() {
   const [projects, setProjects] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedProfile, setSelectedProfile] = useState([]);
+  const [selectedProject, setSelectedProject] = useState([]);
 
   useEffect(() => {
     fetch("/api/users")
@@ -55,7 +56,11 @@ function App() {
             selectedProfile={selectedProfile}
             setSelectedProfile={setSelectedProfile} />}
         />
-        <Route path="/projects" element={<ProjectsList projects={projects} />} />
+        <Route path="/projects" element={
+          <ProjectsList
+            projects={projects}
+            setSelectedProject={setSelectedProject} />}
+        />
         <Route path="/projects/:projectId" element={<Project />} />
         <Route path="/categories" element={<CategoriesList categories={categories} />} />
       </Routes>
