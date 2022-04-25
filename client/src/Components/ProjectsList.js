@@ -8,7 +8,7 @@ const ProjectsList = ({ projects, setSelectedProject }) => {
     setProjectsToDisplay(projects)
   }, [projects])
 
-  console.log("projects to display", projectsToDisplay)
+  // console.log("projects to display", projectsToDisplay)
 
   const handleSelectProjectClick = (clickedProject) => {
     setSelectedProject(clickedProject)

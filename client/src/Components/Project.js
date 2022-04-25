@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Project = (selectedProject) => {
+  const [currentProject, setCurrentProject] = useState(selectedProject)
+
+  console.log("current project", currentProject.selectedProject)
+  // debugger
 
   return (
     <div className="Project">
