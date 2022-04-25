@@ -10,10 +10,14 @@ const ProjectsList = ({ projects, setSelectedProject }) => {
 
   console.log("projects to display", projectsToDisplay)
 
+  const handleSelectProjectClick = (clickedProject) => {
+    setSelectedProject(clickedProject)
+  }
+
   const listOfProjects = projectsToDisplay.map(project => {
     return (
       <p key={project.id}>
-        <Link to={`/projects/${project.id}`}>
+        <Link to={`/projects/${project.id}`} onClick={() => handleSelectProjectClick(project)}>
           {`${project.title} | ${project.description} | ${project.technologies} | ${project.github}`}
         </Link>
       </p>
