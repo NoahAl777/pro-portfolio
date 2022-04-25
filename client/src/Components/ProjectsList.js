@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const ProjectsList = ({ projects }) => {
+const ProjectsList = ({ projects, setSelectedProject }) => {
   const [projectsToDisplay, setProjectsToDisplay] = useState([])
 
   useEffect(() => {
