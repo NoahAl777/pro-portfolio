@@ -13,6 +13,7 @@ const Profile = ({ selectedProfile, setSelectedProfile }) => {
     }
   }, [])
 
+  console.log(currentProfile)
   if (currentProfile != undefined) {
     const { firstname, lastname, email, github, profession, username } = currentProfile;
     return (
@@ -21,6 +22,7 @@ const Profile = ({ selectedProfile, setSelectedProfile }) => {
         <h2>Contact me:</h2>
         <p>Email: {email}</p>
         <p>Github: {github}</p>
+        <h2>Projects</h2>
       </div>
     )
   } else {
