@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Project from "./Project";
 
 const Profile = ({ selectedProfile, setSelectedProfile }) => {
   const params = useParams();
@@ -14,7 +15,17 @@ const Profile = ({ selectedProfile, setSelectedProfile }) => {
   }, [])
 
   console.log(currentProfile)
+
   if (currentProfile != undefined) {
+
+    let userProjectCards = currentProfile.projects.map(project => {
+      return (
+        <div key={project.id}>
+          <Project selectedProject={project} />
+        </div>
+      )
+    })
+
     const { firstname, lastname, email, github, profession, username } = currentProfile;
     return (
       <div className="Profile">
@@ -23,6 +34,7 @@ const Profile = ({ selectedProfile, setSelectedProfile }) => {
         <p>Email: {email}</p>
         <p>Github: {github}</p>
         <h2>Projects</h2>
+        {userProjectCards != undefined ? userProjectCards : null}
       </div>
     )
   } else {
