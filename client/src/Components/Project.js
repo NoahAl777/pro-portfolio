@@ -15,9 +15,9 @@ const Project = ({ selectedProject }) => {
         .then(r => r.json())
         .then(data => setCurrentProject([data]))
         .then(console.log("fetched"))
-    } else {
-      setCurrentProject([selectedProject])
-    }
+    } //else {
+    //   setCurrentProject([selectedProject])
+    // }
   }, [])
 
   // debugger
