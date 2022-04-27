@@ -6,11 +6,11 @@ const Project = ({ selectedProject }) => {
   const [currentProject, setCurrentProject] = useState([selectedProject])
 
   // console.log("selected", selectedProject)
-  console.log("current", currentProject)
+  // console.log("current", currentProject)
   // debugger
 
   useEffect(() => {
-    if (Object.keys(currentProject[0]).length == 0) {
+    if (currentProject[0] == false || params.projectId != undefined) {
       fetch(`/api/projects/${params.projectId}`)
         .then(r => r.json())
         .then(data => setCurrentProject([data]))

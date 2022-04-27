@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Project from "./Project";
 
 const Profile = ({ selectedProfile, setSelectedProfile }) => {
@@ -14,14 +14,17 @@ const Profile = ({ selectedProfile, setSelectedProfile }) => {
     }
   }, [])
 
-  console.log(currentProfile)
+  // console.log(currentProfile)
 
   if (currentProfile != undefined) {
 
     let userProjectCards = currentProfile.projects.map(project => {
+      // console.log("project", project)
       return (
         <div key={project.id}>
-          <Project selectedProject={project} />
+          <Link to={`/projects/${project.id}`}>
+            <Project selectedProject={project} />
+          </Link>
         </div>
       )
     })
