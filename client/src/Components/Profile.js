@@ -16,6 +16,9 @@ const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) =>
   }, [])
 
   // console.log(currentProfile)
+  const handleSelectProjectClick = (clickedProject) => {
+    setSelectedProject(clickedProject)
+  }
 
   if (currentProfile != undefined) {
 
@@ -23,7 +26,7 @@ const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) =>
       // console.log("project", project)
       return (
         <div key={project.id}>
-          <Link to={`/projects/${project.id}`}>
+          <Link to={`/projects/${project.id}`} onClick={() => handleSelectProjectClick(project)}>
             <Project selectedProject={project} />
           </Link>
         </div>
