@@ -5,14 +5,13 @@ const Project = ({ selectedProject }) => {
   const params = useParams()
   const [currentProject, setCurrentProject] = useState([selectedProject])
 
-  console.log("selected", selectedProject)
+  // console.log("selected", selectedProject)
   // console.log("current", currentProject)
   // debugger
 
-
   // LAST COMMIT ACTUALLY TRIGGERS A FETCH EVERY TIME -- MUST FIX
   useEffect(() => {
-    if (currentProject[0] == false || params.projectId != undefined) {
+    if (currentProject[0] == false && params.projectId != undefined) {
       fetch(`/api/projects/${params.projectId}`)
         .then(r => r.json())
         .then(data => setCurrentProject([data]))
