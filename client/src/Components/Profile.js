@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Project from "./Project";
+import ProjectsList from "./ProjectsList";
 
-const Profile = ({ selectedProfile, setSelectedProfile }) => {
+const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) => {
   const params = useParams();
   const [currentProfile, setCurrentProfile] = useState(selectedProfile[0])
 

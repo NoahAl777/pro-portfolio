@@ -54,7 +54,8 @@ function App() {
         <Route path="/profiles/:profileId" element={
           <Profile
             selectedProfile={selectedProfile}
-            setSelectedProfile={setSelectedProfile} />}
+            setSelectedProfile={setSelectedProfile}
+            setSelectedProject={setSelectedProject} />}
         />
         <Route path="/projects" element={
           <ProjectsList

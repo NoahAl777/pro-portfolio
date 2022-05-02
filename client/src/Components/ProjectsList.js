@@ -12,6 +12,7 @@ const ProjectsList = ({ projects, setSelectedProject }) => {
 
   const handleSelectProjectClick = (clickedProject) => {
     setSelectedProject(clickedProject)
+    console.log("handleSelectProjectClick")
   }
 
   const listOfProjects = projectsToDisplay.map(project => {
