@@ -21,6 +21,10 @@ gem 'faker'
 # rails debugger tool
 gem 'byebug'
 
+# Password encryption gem. Allows the use of has_secure_password macro
+gem "bcrypt", "~> 3.1.17"
+
+# Rails serializer gem
 gem 'active_model_serializers'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
