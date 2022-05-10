@@ -4,6 +4,7 @@ class Api::CategoriesController < ApplicationController
   wrap_parameters format: []
 
   def index
+    # byebug
     if params[:project_id]
       project = find_project
       categories = project.categories
