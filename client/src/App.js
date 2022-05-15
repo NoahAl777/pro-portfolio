@@ -3,7 +3,8 @@ import './App.css';
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from './Components/NavBar';
-import Home from "./Components/Home"
+import Home from "./Components/Home";
+import Login from "./Components/Login";
 import ProfilesList from './Components/ProfilesList';
 import ProjectsList from './Components/ProjectsList';
 import CategoriesList from './Components/CategoriesList';
@@ -45,6 +46,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/profiles" element={
           <ProfilesList
