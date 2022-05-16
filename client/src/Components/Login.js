@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
 const Login = () => {
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
+  const [formData, setFormData] = useState({ username: "", password: "" })
+
+  const handlChange = (event) => {
+    console.log(event.target.value)
+  }
 
   return (
     <div className="Login">
