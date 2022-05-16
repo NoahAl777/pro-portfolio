@@ -8,10 +8,10 @@ const Login = () => {
     <div className="Login">
       <form>
         <label>Username</label>
-        <input type="text"></input>
+        <input type="text" onChange={handlChange}></input>
         <br />
         <label>Password</label>
-        <input type="text"></input>
+        <input type="text" onChange={handlChange}></input>
         <br />
         <input type="submit" value="Login"></input>
       </form>
