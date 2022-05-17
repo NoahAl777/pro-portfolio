@@ -19,7 +19,7 @@ const Login = () => {
         <input type="text" id="username" onChange={handlChange}></input>
         <br />
         <label>Password</label>
-        <input type="text" id="password" onChange={handlChange}></input>
+        <input type="password" id="password" onChange={handlChange}></input>
         <br />
         <input type="submit" value="Login"></input>
       </form>
