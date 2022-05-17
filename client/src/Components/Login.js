@@ -7,9 +7,14 @@ const Login = () => {
     setFormData({ ...formData, [event.target.id]: event.target.value })
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(formData)
+  }
+
   return (
     <div className="Login">
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Username</label>
         <input type="text" id="username" onChange={handlChange}></input>
         <br />
