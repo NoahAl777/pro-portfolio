@@ -10,6 +10,7 @@ import ProjectsList from './Components/ProjectsList';
 import CategoriesList from './Components/CategoriesList';
 import Profile from './Components/Profile';
 import Project from './Components/Project';
+import ProjectForm from './Components/ProjectForm';
 
 function App() {
   const [profiles, setProfiles] = useState([]);
