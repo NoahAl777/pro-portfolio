@@ -3,10 +3,15 @@ import React, { useState } from 'react';
 
 const ProjectForm = () => {
   const [formData, setFormData] = useState({ title: '', description: '', technologies: '', github: '', live_link: '' })
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+  }
+
   return (
     <>
       <h2>Create New Project</h2>
-      <form className='ProjectForm'>
+      <form className='ProjectForm' onSubmit={handleSubmit}>
         <label>Title</label>
         <input type="text" id="title"></input>
         <br />
