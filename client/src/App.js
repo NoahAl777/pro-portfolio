@@ -66,6 +66,7 @@ function App() {
             setSelectedProject={setSelectedProject} />}
         />
         <Route path="/projects/:projectId" element={<Project selectedProject={selectedProject} />} />
+        <Route path="/projects/new" element={<ProjectForm />} />
         <Route path="/categories" element={<CategoriesList categories={categories} />} />
       </Routes>
     </div>
