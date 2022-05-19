@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+// NOTE: When navigating to other pages from this component they don't load
 
 const ProjectForm = () => {
-  // NOTE: When navigating to other pages from this component they don't load
+  const [formData, setFormData] = useState({ title: '', description: '', technologies: '', github: '', live_link: '' })
   return (
     <>
       <h2>Create New Project</h2>
