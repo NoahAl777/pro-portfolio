@@ -1,8 +1,9 @@
 class Api::SessionsController < ApplicationController
 
   def create
-    user = user.find_by_username(params[:username])
+    user = User.find_by_username(params[:username])
     if user&.authenticate(params[:password])
+      console.log(user)
       session[:user_id] = user.id
       render json: user, status: :accepted
     else

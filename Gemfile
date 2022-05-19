@@ -21,6 +21,9 @@ gem 'faker'
 # rails debugger tool
 gem 'byebug'
 
+# rails debugger tool
+gem 'pry'
+
 # Password encryption gem. Allows the use of has_secure_password macro
 gem "bcrypt", "~> 3.1.17"
 

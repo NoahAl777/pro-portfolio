@@ -9,7 +9,15 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(formData)
+    fetch("login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(r => r.json())
+      .then(console.log)
   }
 
   return (
