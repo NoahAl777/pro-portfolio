@@ -4,11 +4,12 @@ const SignUp = () => {
   const [formData, setFormData] = useState({ username: "", email: "", password: "", firstname: "", lastname: "", profession: "", github: "" })
 
   const handleChange = (event) => {
-    console.log(event.target.id, event.target.value)
+    setFormData({ ...formData, [event.target.id]: event.target.value })
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    console.log(formData)
   }
 
   return (
