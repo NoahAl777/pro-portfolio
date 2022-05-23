@@ -21,7 +21,7 @@ function App() {
   const [selectedProject, setSelectedProject] = useState([]);
 
   useEffect(() => {
-    fetch("users")
+    fetch("/users")
       .then(r => r.json())
       .then(data => {
         setProfiles(data)
@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("projects")
+    fetch("/projects")
       .then(r => r.json())
       .then(data => {
         setProjects(data)
@@ -37,7 +37,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("categories")
+    fetch("/categories")
       .then(r => r.json())
       .then(data => {
         setCategories(data)
