@@ -16,7 +16,7 @@ const ProfilesList = ({ profiles, setSelectedProfile }) => {
   const listOfProfiles = profilesToDisplay.map(profile => {
     return (
       <p key={profile.id}>
-        <Link to={`/profiles/${profile.id}`} onClick={() => handleSelectProfileClick(profile.id)}>
+        <Link to={`${profile.id}`} onClick={() => handleSelectProfileClick(profile.id)}>
           {`${profile.firstname} ${profile.lastname} | ${profile.profession} | ${profile.github}`}
         </Link>
       </p>
@@ -29,6 +29,7 @@ const ProfilesList = ({ profiles, setSelectedProfile }) => {
       {listOfProfiles}
     </div>
   )
+
 };
 
 export default ProfilesList;
