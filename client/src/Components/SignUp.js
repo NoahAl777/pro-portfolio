@@ -34,7 +34,7 @@ const SignUp = () => {
         <label>GitHub</label>
         <input type="text" id="github" onChange={handleChange}></input>
         <br />
-        <input type="submit" value="Login"></input>
+        <input type="submit" value="Sign Up"></input>
       </form>
     </div>
   )
