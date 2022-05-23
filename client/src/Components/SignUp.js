@@ -6,6 +6,10 @@ const SignUp = () => {
     console.log(event)
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+  }
+
   return (
     <div className="SignUp">
       <form onSubmit={handleSubmit}>
