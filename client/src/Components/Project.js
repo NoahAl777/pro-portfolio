@@ -11,7 +11,7 @@ const Project = ({ selectedProject }) => {
 
   useEffect(() => {
     if (currentProject[0] == false && params.projectId != undefined) {
-      fetch(`projects/${params.projectId}`)
+      fetch(`/projects/${params.projectId}`)
         .then(r => r.json())
         .then(data => setCurrentProject([data]))
         .then(console.log("fetched"))
