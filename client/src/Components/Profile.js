@@ -9,7 +9,7 @@ const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) =>
 
   useEffect(() => {
     if (currentProfile == undefined) {
-      fetch(`users/${params.profileId}`)
+      fetch(`/users/${params.profileId}`)
         .then(r => r.json())
         .then((data) => setCurrentProfile(data))
     }
