@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SignUp = () => {
+  const [formData, setFormData] = useState({ username: "", email: "", password: "", firstname: "", lastname: "", profession: "", github: "" })
 
   const handleChange = (event) => {
-    console.log(event)
+    console.log(event.target.id, event.target.value)
   }
 
   const handleSubmit = (event) => {
