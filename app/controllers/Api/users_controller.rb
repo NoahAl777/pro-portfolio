@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+  skip_before_action :authorized?, only: [:index, :show, :create]
   wrap_parameters format: []
 
   def index
@@ -10,6 +11,11 @@ class Api::UsersController < ApplicationController
   def show
     user = find_user
     render json: user, except: [:password, :created_at, :updated_at], status: :ok
+  end
+
+  def me
+    user ||= User.find_by_id(session[:user_id])
+    render json: user, status: :accepted
   end
 
   def create

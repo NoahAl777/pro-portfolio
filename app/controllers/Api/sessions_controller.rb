@@ -1,4 +1,5 @@
 class Api::SessionsController < ApplicationController
+  skip_before_action :authorized?
 
   def create
     user = User.find_by_username(params[:username])
@@ -11,6 +12,7 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete([:user_id])
+    # byebug
+    session.delete(:user_id)
   end
 end
