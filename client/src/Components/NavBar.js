@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
 
+  const handleLogout = () => {
+    fetch("/logout", {
+      method: "DELETE"
+    })
+      .then(console.log("Logout"))
+      .catch((e) => console.log(e))
+  }
+
   return (
     <div className="NavBar">
       <Link to="/">
@@ -17,6 +25,10 @@ const NavBar = () => {
       <Link to="/categories">
         <button className="CategoriesButton">Categories</button>
       </Link>
+      <Link to="/login">
+        <button className="LoginButton">Login</button>
+      </Link>
+      <button className="LogoutButton" onClick={handleLogout}>Logout</button>
     </div>
   )
 };
