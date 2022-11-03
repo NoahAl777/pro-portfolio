@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ setSelectedProfile }) => {
 
   const handleLogout = () => {
     fetch("/logout", {
       method: "DELETE"
     })
+      .then(setSelectedProfile([]))
       .then(console.log("Logout"))
       .catch((e) => console.log(e))
   }
@@ -15,6 +16,9 @@ const NavBar = () => {
     <div className="NavBar">
       <Link to="/">
         <button className="HomeButton">Home</button>
+      </Link>
+      <Link to="/me">
+        <button className="Me">Me</button>
       </Link>
       <Link to="/profiles">
         <button className="PortfoliosButton">Portfolios</button>
