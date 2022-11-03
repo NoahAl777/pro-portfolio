@@ -1,18 +1,25 @@
 import React from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Profile from "./Profile"
 import { Link } from "react-router-dom"
 
 const Me = ({ me, setMe, setSelectedProject }) => {
   console.log(me)
+  const navigate = useNavigate()
 
-  if (!me) {
-    fetch("/me")
-      .then(r => r.json())
-      .then(data => {
-        setMe(data)
-      })
-  }
+  useEffect(() => {
+    if (!me && !me.error) {
+      fetch("/me")
+        .then(r => r.json())
+        .then(data => {
+          setMe(data)
+        })
+    } else {
+      navigate("/login")
+    }
+  }, [])
+
 
   return (
     <>
