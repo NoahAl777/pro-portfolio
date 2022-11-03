@@ -27,7 +27,7 @@ function App() {
       .then(data => {
         setMe(data)
       })
-  }, [])
+  }, [projects])
 
   useEffect(() => {
     fetch("/users")
