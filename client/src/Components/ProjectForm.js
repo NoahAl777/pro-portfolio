@@ -26,7 +26,7 @@ const ProjectForm = ({ me, projects, setProjects }) => {
       .then(data => setProjects([...projects, data]))
   }
 
-  if (me.error === "Not authorized" || []) {
+  if (me.error === "Not authorized" || me.length === 0) {
     return <p>Loading...</p>
   } else {
     return (

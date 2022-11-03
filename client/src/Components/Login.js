@@ -21,14 +21,11 @@ const Login = ({ setMe }) => {
     })
       .then(r => r.json())
       .then(data => {
-        debugger
         if (!data.error) {
-          debugger
           setMe(data)
           setError([])
           navigate("/me")
         } else {
-          debugger
           setError(data.error)
         }
       })
