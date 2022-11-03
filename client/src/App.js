@@ -6,6 +6,7 @@ import NavBar from './Components/NavBar';
 import Home from "./Components/Home";
 import Login from "./Components/Login";
 import SignUp from './Components/SignUp';
+import Me from "./Components/Me";
 import ProfilesList from './Components/ProfilesList';
 import ProjectsList from './Components/ProjectsList';
 import CategoriesList from './Components/CategoriesList';
@@ -19,6 +20,14 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [selectedProfile, setSelectedProfile] = useState([]);
   const [selectedProject, setSelectedProject] = useState([]);
+  // console.log("app", selectedProfile)
+  useEffect(() => {
+    fetch("/me")
+      .then(r => r.json())
+      .then(data => {
+        setSelectedProfile(data)
+      })
+  }, [])
 
   useEffect(() => {
     fetch("/users")
@@ -46,11 +55,12 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar setSelectedProfile={setSelectedProfile} />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/me" element={<Me me={selectedProfile} />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setSelectedProfile={setSelectedProfile} />} />
         <Route path="/profiles" element={
           <ProfilesList
             profiles={profiles}

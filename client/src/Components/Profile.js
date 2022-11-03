@@ -5,6 +5,7 @@ import ProjectsList from "./ProjectsList";
 
 const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) => {
   const params = useParams();
+  console.log("profile", selectedProfile)
   const [currentProfile, setCurrentProfile] = useState(selectedProfile[0])
 
   useEffect(() => {
@@ -19,8 +20,8 @@ const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) =>
   const handleSelectProjectClick = (clickedProject) => {
     setSelectedProject(clickedProject)
   }
-
-  if (currentProfile != undefined) {
+  debugger
+  if (currentProfile != undefined && currentProfile.error != 'Not authorized') {
 
     let userProjectCards = currentProfile.projects.map(project => {
       // console.log("project", project)

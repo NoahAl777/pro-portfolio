@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Login = () => {
+const Login = ({ setSelectedProfile }) => {
   const [formData, setFormData] = useState({ username: "", password: "" })
 
   const handlChange = (event) => {
@@ -17,7 +17,7 @@ const Login = () => {
       body: JSON.stringify(formData)
     })
       .then(r => r.json())
-      .then(console.log)
+      .then(data => setSelectedProfile(data))
   }
 
   return (
