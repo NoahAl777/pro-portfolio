@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Login = ({ setSelectedProfile }) => {
   const [formData, setFormData] = useState({ username: "", password: "" })
 
-  const handlChange = (event) => {
+  const handleChange = (event) => {
     setFormData({ ...formData, [event.target.id]: event.target.value })
   }
 
@@ -24,10 +24,10 @@ const Login = ({ setSelectedProfile }) => {
     <div className="Login">
       <form onSubmit={handleSubmit}>
         <label>Username</label>
-        <input type="text" id="username" onChange={handlChange}></input>
+        <input type="text" id="username" onChange={handleChange}></input>
         <br />
         <label>Password</label>
-        <input type="password" id="password" onChange={handlChange}></input>
+        <input type="password" id="password" onChange={handleChange}></input>
         <br />
         <input type="submit" value="Login"></input>
       </form>
