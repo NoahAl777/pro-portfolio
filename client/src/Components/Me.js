@@ -9,12 +9,15 @@ const Me = ({ me, setMe, setSelectedProject }) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (!me && !me.error) {
+    // debugger
+    if (!me || !me.error) {
       fetch("/me")
         .then(r => r.json())
         .then(data => {
           setMe(data)
         })
+    } else if (me && me.error !== "Not authorized") {
+      return
     } else {
       navigate("/login")
     }

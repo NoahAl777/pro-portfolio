@@ -1,14 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const NavBar = ({ setSelectedProfile }) => {
+const NavBar = ({ setMe }) => {
+  const navigate = useNavigate()
 
   const handleLogout = () => {
     fetch("/logout", {
       method: "DELETE"
     })
-      .then(setSelectedProfile([]))
-      .then(console.log("Logout"))
+      .then(setMe([]))
+      .then(navigate("/login"))
       .catch((e) => console.log(e))
   }
 

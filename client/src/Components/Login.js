@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({ setSelectedProfile }) => {
+const Login = ({ setMe }) => {
   const [formData, setFormData] = useState({ username: "", password: "" })
+  const [error, setError] = useState()
+  const navigate = useNavigate()
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.id]: event.target.value })
@@ -17,11 +20,23 @@ const Login = ({ setSelectedProfile }) => {
       body: JSON.stringify(formData)
     })
       .then(r => r.json())
-      .then(data => setSelectedProfile(data))
+      .then(data => {
+        debugger
+        if (!data.error) {
+          debugger
+          setMe(data)
+          setError([])
+          navigate("/me")
+        } else {
+          debugger
+          setError(data.error)
+        }
+      })
   }
 
   return (
     <div className="Login">
+      <p>{error}</p>
       <form onSubmit={handleSubmit}>
         <label>Username</label>
         <input type="text" id="username" onChange={handleChange}></input>

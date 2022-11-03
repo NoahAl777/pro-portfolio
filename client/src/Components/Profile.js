@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import Project from "./Project";
 
 const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) => {
   const params = useParams();
-  console.log("profile", selectedProfile)
+  const navigate = useNavigate();
+  // console.log("profile", selectedProfile)
   const [currentProfile, setCurrentProfile] = useState(selectedProfile[0])
 
   useEffect(() => {
@@ -44,6 +45,8 @@ const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) =>
         {userProjectCards !== undefined ? userProjectCards : null}
       </div>
     )
+  } else if (currentProfile.error === "Not authorized") {
+    navigate("/login")
   } else {
     return <h2>Loading profile...</h2>
   }

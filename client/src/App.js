@@ -55,12 +55,12 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar setSelectedProfile={setSelectedProfile} />
+      <NavBar setMe={setMe} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/me" element={<Me me={me} setMe={setMe} setSelectedProject={setSelectedProject} />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login setSelectedProfile={setSelectedProfile} />} />
+        <Route path="/login" element={<Login setMe={setMe} />} />
         <Route path="/profiles" element={
           <ProfilesList
             profiles={profiles}
