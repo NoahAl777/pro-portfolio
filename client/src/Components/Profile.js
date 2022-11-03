@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Project from "./Project";
-import ProjectsList from "./ProjectsList";
 
 const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) => {
   const params = useParams();
@@ -9,7 +8,7 @@ const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) =>
   const [currentProfile, setCurrentProfile] = useState(selectedProfile[0])
 
   useEffect(() => {
-    if (currentProfile == undefined) {
+    if (currentProfile === undefined) {
       fetch(`/users/${params.profileId}`)
         .then(r => r.json())
         .then((data) => setCurrentProfile(data))
@@ -21,7 +20,7 @@ const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) =>
     setSelectedProject(clickedProject)
   }
   // debugger
-  if (currentProfile != undefined && currentProfile.error != 'Not authorized') {
+  if (currentProfile !== undefined && currentProfile.error !== 'Not authorized') {
 
     let userProjectCards = currentProfile.projects.map(project => {
       // console.log("project", project)
@@ -34,7 +33,7 @@ const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) =>
       )
     })
 
-    const { firstname, lastname, email, github, profession, username } = currentProfile;
+    const { firstname, lastname, email, github, profession } = currentProfile;
     return (
       <div className="Profile">
         <h1>{firstname} {lastname} | {profession}</h1>
@@ -42,7 +41,7 @@ const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) =>
         <p>Email: {email}</p>
         <p>Github: {github}</p>
         <h2>Projects</h2>
-        {userProjectCards != undefined ? userProjectCards : null}
+        {userProjectCards !== undefined ? userProjectCards : null}
       </div>
     )
   } else {

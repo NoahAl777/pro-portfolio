@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // NOTE: When navigating to other pages from this component they don't load
 // NOTE: Until sessions problem is solved: all submissions will have user_id harcoded
 // NOTE: Will need to add error messages to form
-const ProjectForm = ({ me }) => {
+const ProjectForm = ({ me, projects, setProjects }) => {
   const [formData, setFormData] = useState({ title: '', description: '', technologies: '', github: '', live_link: '', user_id: me.id })
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.id]: event.target.value })
@@ -18,7 +18,7 @@ const ProjectForm = ({ me }) => {
       body: JSON.stringify(formData)
     })
       .then(r => r.json())
-      .then(console.log)
+      .then(data => setProjects([...projects, data]))
   }
 
   return (

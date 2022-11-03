@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
@@ -79,7 +78,7 @@ function App() {
             setSelectedProject={setSelectedProject} />}
         />
         <Route path="/projects/:projectId" element={<Project selectedProject={selectedProject} />} />
-        <Route path="/projects/new" element={<ProjectForm me={me} />} />
+        <Route path="/projects/new" element={<ProjectForm me={me} projects={projects} setProjects={setProjects} />} />
         <Route path="/categories" element={<CategoriesList categories={categories} />} />
       </Routes>
     </div>
