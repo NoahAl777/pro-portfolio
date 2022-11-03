@@ -28,7 +28,6 @@ const ProjectsList = ({ projects, setSelectedProject }) => {
   return (
     <div className="ProjectsList">
       <h2>Projects</h2>
-      <button>New</button>
       {listOfProjects}
     </div>
   )

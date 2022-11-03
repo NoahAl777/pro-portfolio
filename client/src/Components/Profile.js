@@ -20,7 +20,7 @@ const Profile = ({ selectedProfile, setSelectedProfile, setSelectedProject }) =>
   const handleSelectProjectClick = (clickedProject) => {
     setSelectedProject(clickedProject)
   }
-  debugger
+  // debugger
   if (currentProfile != undefined && currentProfile.error != 'Not authorized') {
 
     let userProjectCards = currentProfile.projects.map(project => {

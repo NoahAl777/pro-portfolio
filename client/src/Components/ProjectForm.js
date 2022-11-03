@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 // NOTE: When navigating to other pages from this component they don't load
 // NOTE: Until sessions problem is solved: all submissions will have user_id harcoded
 // NOTE: Will need to add error messages to form
-const ProjectForm = () => {
-  const [formData, setFormData] = useState({ title: '', description: '', technologies: '', github: '', live_link: '', user_id: 20 })
-
+const ProjectForm = ({ me }) => {
+  const [formData, setFormData] = useState({ title: '', description: '', technologies: '', github: '', live_link: '', user_id: me.id })
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.id]: event.target.value })
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    fetch("/users/2/projects", {
+    fetch(`/users/${me.id}/projects`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

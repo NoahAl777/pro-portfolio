@@ -20,12 +20,13 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [selectedProfile, setSelectedProfile] = useState([]);
   const [selectedProject, setSelectedProject] = useState([]);
-  // console.log("app", selectedProfile)
+  const [me, setMe] = useState([])
+  console.log("app", me)
   useEffect(() => {
     fetch("/me")
       .then(r => r.json())
       .then(data => {
-        setSelectedProfile(data)
+        setMe(data)
       })
   }, [])
 
@@ -58,7 +59,7 @@ function App() {
       <NavBar setSelectedProfile={setSelectedProfile} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/me" element={<Me me={selectedProfile} />} />
+        <Route path="/me" element={<Me me={me} setSelectedProject={setSelectedProject} />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login setSelectedProfile={setSelectedProfile} />} />
         <Route path="/profiles" element={
@@ -78,7 +79,7 @@ function App() {
             setSelectedProject={setSelectedProject} />}
         />
         <Route path="/projects/:projectId" element={<Project selectedProject={selectedProject} />} />
-        <Route path="/projects/new" element={<ProjectForm />} />
+        <Route path="/projects/new" element={<ProjectForm me={me} />} />
         <Route path="/categories" element={<CategoriesList categories={categories} />} />
       </Routes>
     </div>
